@@ -11,7 +11,8 @@ router.get('/', function(req, res, next){
 
     res.render('index', {
       title: 'Restaurante Saboroso',
-      menus: results
+      menus: results,
+      isHome: true
     });
   });
  
@@ -48,7 +49,7 @@ router.get('/reservations', function(req, res, next){
 
     title: 'Reserva - Restaurante Saboroso',
     background: 'images/img_bg_2.jpg',
-    h1: 'Reserve uma Mesa!!'
+    h1: 'Reserve uma Mesa!'
   });
 });
 
