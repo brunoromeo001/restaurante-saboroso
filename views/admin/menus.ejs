@@ -145,7 +145,6 @@
 <script>
 
 let formCreate = document.querySelector("#modal-create form");
-let formCreateData = new FormData(formCreate);
 
 formCreate.addEventListener('submit', e=> {
 
@@ -160,11 +159,8 @@ formCreate.addEventListener('submit', e=> {
     .then(response => response.json())
     .then(json => {
 
-      console.log("JSON", json);
+      windows.location.reload();
     });
 });
-
-console.log(formCreateData);
-
 
 </script>
