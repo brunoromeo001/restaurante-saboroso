@@ -37,7 +37,7 @@
               </thead>
               <tbody>
                 <% data.forEach(function(row){ %>
-                <tr>
+                <tr data-row="<%= JSON.stringify(row) %>">
                   <td><%= row.id %></td>
                   <td><img src="/<%= row.photo %>" alt="" style="height: 18px;"></td>
                   <td><%= row.title %></td>
@@ -175,7 +175,7 @@ let formUpdate = document.querySelector('#modal-update form');
     });
 
     let data = JSON.parse(tr.dataset.row);
-
+    
     for (let name in data){
 
       switch (name){
@@ -188,10 +188,10 @@ let formUpdate = document.querySelector('#modal-update form');
           if (input) input.value = data[name];
       }
     }
-
     $('#modal-update').modal('show');
   });
 
 });
+    
 
 </script>
