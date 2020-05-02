@@ -34,7 +34,13 @@ class HcodeGrid{
             formCreate: '#modal-create form',
             formUpdate: '#modal-update form',
             btnUpdate: '.btn-update',
-            btnDelete: '.btn-delete'
+            btnDelete: '.btn-delete',
+            onUpdateLoad: (form, name, data) => {
+
+              let input = form.querySelector('[name='+name+']');
+              
+              if (input) input.value = data [name];
+            }
         }, configs);
 
         this.initForm();
@@ -95,17 +101,9 @@ class HcodeGrid{
             let data = this.getTrData(e);
 
             for (let name in data){
-        
-              let input = this.formUpdate.querySelector(`[name=${name}]`);
-      
-              switch (name){
-      
-                case 'date':
-                  if (input) input.value = moment(data[name]).format('YYYY-MM-DD');
-                break;
-                default:            
-                  if (input) input.value = data[name];
-              }
+
+              this.options.onUpdateLoad(this.formUpdate, name, data);        
+              
             }
             
             this.fireEvent('afterUpdateClick', [e]);
@@ -117,7 +115,7 @@ class HcodeGrid{
       
           btn.addEventListener('click', e=>{
 
-            this.fireEvent('afterDeleteClick');
+            this.fireEvent('beforeDeleteClick');
             
             let data = this.getTrData(e);
             
