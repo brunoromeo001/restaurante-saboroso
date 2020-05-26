@@ -163,9 +163,9 @@
     deleteUrl:'/admin/users/${data.id}',
     deleteMsg:'Deseja realmente excluir o usuário ${data.name}?',
     listeners:{
-
+      
       buttonClick:(btn, data, e)=>{
-
+        
         document.querySelector("#modal-update-password form").value = data.id;
 
         $("#modal-update-password").modal("show");
@@ -174,10 +174,10 @@
   });
   document.querySelector("#modal-update-password form").save({
 
-    success: ()=>{
-      window.location.reload();
+    success:()=>{
+     window.location.reload();     
     },
-    failure: err=>{
+    failure:err=>{
       alert(err);
     }
   })
