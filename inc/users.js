@@ -157,7 +157,7 @@ module.exports = {
                     if (err){
                         reject(err.message);                    
                     } else{
-                        resolve(results);
+                        resolve(results);                    
                     }
                 });
             }
