@@ -166,7 +166,7 @@
       
       buttonClick:(btn, data, e)=>{
         
-        document.querySelector("#modal-update-password form").value = data.id;
+        document.querySelector("#modal-update-password [name=id]").value = data.id;
 
         $("#modal-update-password").modal("show");
       }
