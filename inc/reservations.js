@@ -140,12 +140,11 @@ module.exports = {
             FROM tb_reservations
             WHERE
                 date BETWEEN ? AND ?
-            GROUP BY YEAR(date), MONTH(date) 
+            GROUP BY YEAR(date), MONTH(date)
             ORDER BY YEAR(date) DESC, MONTH(date) DESC;
-            `,[
+            `, [
                 req.query.start,
                 req.query.end
-
             ], (err, results)=>{
 
                 if(err){
@@ -158,16 +157,16 @@ module.exports = {
                     results.forEach(row=>{
 
                         months.push(moment(row.date).format('MMM YYYY'));
-                        values.push(row.total);
+                        values.push(row.total);                        
                     });
 
                     resolve({
                         months,
                         values
-                    })
+                    });                    
                 }
-            });
-        })
+            });            
+        });
     }
 
 }
